@@ -1,0 +1,10 @@
+const express = require('express')
+const usuarios = express.Router()
+const Usuarioscontroler = require('./controler/usuarioscontroller')
+const usuarioscontroller = new Usuarioscontroler()
+usuarios.get('/users', usuarioscontroller.listar)
+usuarios.get('/users/:id',usuarioscontroller.constudarid)
+usuarios.post('/users',usuarioscontroller.criar)
+usuarios.delete('/users/:id',usuarioscontroller.deletar)
+usuarios.put('/users/:id', usuarioscontroller.atualizar)
+module.exports = usuarios
