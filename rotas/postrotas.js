@@ -1,0 +1,10 @@
+const express = require('express')
+const postrotas = express.Router()
+const Postcontroler = require('../controler/postcontrole')
+const postcontroler = new Postcontroler()
+postrotas.get('/post', postcontroler.listar)
+postrotas.get('/post/:id',postcontroler.constudarid)
+postrotas.post('/post',postcontroler.criar)
+postrotas.delete('/post/:id',postcontroler.deletar)
+postrotas.put('/post/:id', postcontroler.atualizar)
+module.exports = postrotas
