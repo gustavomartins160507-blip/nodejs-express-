@@ -1,5 +1,7 @@
 const express = require('express')
 const usuarios = require('./users')
+const rotasprivadas = require('./rotas/rotasprivadas')
+const Rotaspublicas = require('./rotas/rotaspublicas')
 const app = express()
 const host = "localhost"
 const port = 3001
@@ -16,7 +18,8 @@ app.get('/teste/:codigo',(request,response) =>{
     dados += "body: " + JSON.stringify(body)
     return response.send(dados)
 })
-app.use(usuarios)
+app.use(Rotaspublicas)
+app.use(rotasprivadas)
 app.listen(port,host, () =>{
     console.log(`servidor executando http://${host}:${port}`)
 })
